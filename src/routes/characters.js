@@ -18,6 +18,12 @@ router.get('/', async (_req, res, next) => {
     const [rows] = await pool.query('SELECT * FROM characters ORDER BY id');
     res.json(rows);
   } catch (error) {
+    console.error('Pokemon database error:', {
+      message: error.message,
+      code: error.code,
+      errno: error.errno,
+      sqlState: error.sqlState
+    });
     next(error);
   }
 });
