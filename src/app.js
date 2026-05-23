@@ -19,11 +19,7 @@ app.get('/swagger.json', (_req, res) => res.json(swaggerSpec));
 
 app.use((error, _req, res, _next) => {
   console.error(error);
-  res.status(500).json({
-    message: 'Internal server error',
-    error: error.message,
-    code: error.code
-  });
+  res.status(500).json({ message: 'Internal server error' });
 });
 
 module.exports = app;
