@@ -10,8 +10,9 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD || 'pokemon_pass',
   ssl: useSsl ? { rejectUnauthorized: false } : undefined,
   waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  connectionLimit: 5,
+  queueLimit: 0,
+  connectTimeout: 10000
 });
 
 module.exports = pool;
